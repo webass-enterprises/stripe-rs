@@ -1001,6 +1001,7 @@ pub enum SubscriptionPaymentBehavior {
     AllowIncomplete,
     ErrorIfIncomplete,
     PendingIfIncomplete,
+    DefaultIncomplete,
 }
 
 impl SubscriptionPaymentBehavior {
@@ -1009,6 +1010,7 @@ impl SubscriptionPaymentBehavior {
             SubscriptionPaymentBehavior::AllowIncomplete => "allow_incomplete",
             SubscriptionPaymentBehavior::ErrorIfIncomplete => "error_if_incomplete",
             SubscriptionPaymentBehavior::PendingIfIncomplete => "pending_if_incomplete",
+            SubscriptionPaymentBehavior::DefaultIncomplete => "default_incomplete",
         }
     }
 }
