@@ -11,7 +11,7 @@ use serde_derive::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct InvoiceLineItem {
     /// Unique identifier for the object.
-    pub id: InvoiceLineItemId,
+    pub id: String,
 
     /// The amount, in %s.
     pub amount: i64,
@@ -86,7 +86,7 @@ pub struct InvoiceLineItem {
 }
 
 impl Object for InvoiceLineItem {
-    type Id = InvoiceLineItemId;
+    type Id = String;
     fn id(&self) -> Self::Id {
         self.id.clone()
     }
