@@ -11,6 +11,7 @@ use serde_derive::{Deserialize, Serialize};
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct InvoiceLineItem {
     /// Unique identifier for the object.
+    // NOTE(alec): This should be an InvoiceLineItemId instance, but it doesn't currently support a prefix for the 2020 Stripe API
     pub id: String,
 
     /// The amount, in %s.
