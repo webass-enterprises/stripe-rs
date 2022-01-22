@@ -1,6 +1,6 @@
 # stripe-rust
 
-[![stripe-rust on Travis CI](https://travis-ci.org/wyyerd/stripe-rs.svg?branch=master)](https://travis-ci.org/wyyerd/stripe-rs)
+[![tests](https://github.com/wyyerd/stripe-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/wyyerd/stripe-rs/actions/workflows/ci.yml)
 [![stripe-rust on crates.io](https://img.shields.io/crates/v/stripe-rust.svg)](https://crates.io/crates/stripe-rust)
 [![stripe-rust on docs.rs](https://docs.rs/stripe-rust/badge.svg)](https://docs.rs/stripe-rust)
 
@@ -102,6 +102,22 @@ stripe-rust = { version = "*", default-features = false, features = ["default-tl
 
 Refer to the [Stripe API docs](https://stripe.com/docs/api) to determine
 which APIs are included as part of each feature flag.
+
+
+### Async Dependencies
+This crate depends on `tokio=1`. Users of the `stripe-rs` async client will need
+all of their dependencies to be compatible with the >1.0 release of `tokio`. The
+`actix` framework is one notable dependency that hasn't released a stable
+version compatible with tokio 1.0 yet, so you will have to use one of their
+[beta releases](https://docs.rs/actix-web/4.0.0-beta.9/actix_web/) to make
+Stripe calls in an `actix` handler.
+
+Other libraries you depend on may also bring an outdated async runtime. You can
+track these down with `cargo tree` and search crates.io to find suitable updates:
+
+``` sh
+cargo tree | grep "tokio v0"
+```
 
 ## Contributing
 
